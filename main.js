@@ -1,7 +1,7 @@
 /*global angular: true*/
 "use strict";
 
-angular.module('ProductsApp', ['RegexpFilterModule', 'ShopApiModule'])
+angular.module('ProductsApp', ['RegexpFilterModule', 'ShopApiModule', 'ngSanitize'])
 	.controller('ProductListController', function ($scope, ShopApi) {
 		$scope.query = "";
 		$scope.data = ShopApi.search({endpoint: 'apiSearch', cat: 'mens-ties'});
@@ -19,6 +19,17 @@ angular.module('ProductsApp', ['RegexpFilterModule', 'ShopApiModule'])
 			restrict: 'E',
 			replace: true,
 			templateUrl: 'templates/product_summary.html',
+			controller: 'ProductController',
+			scope: {
+				product: '=',
+			}
+		};
+	})
+	.directive('productDetail', function () {
+		return {
+			restrict: 'E',
+			replace: true,
+			templateUrl: 'templates/product_detail.html',
 			controller: 'ProductController',
 			scope: {
 				product: '=',

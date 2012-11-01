@@ -1,0 +1,14 @@
+<div class="product-detail">
+	<h2>{{product.name}}</h2>
+	<img ng-src="{{product.images.large.url}}"/>
+
+	<p ng-bind-html="product.description"></p>
+
+	<p>
+		{{product.currency}} {{product.price}}
+		-
+		{{product.brandName}}
+	</p>
+
+	<p><a href="{{product.url}}">[Link]</a></p>
+</div>
