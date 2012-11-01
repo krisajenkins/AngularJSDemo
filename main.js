@@ -1,14 +1,16 @@
-/*global productQuery:true*/
+/*global angular: true*/
 "use strict";
 
-angular.module('ProductsApp', ['RegexpFilterModule'])
-	.controller('ProductListController', function ($scope) {
+angular.module('ProductsApp', ['RegexpFilterModule', 'ShopApiModule'])
+	.controller('ProductListController', function ($scope, ShopApi) {
 		$scope.query = "";
-		$scope.products = productQuery.products;
+		$scope.data = ShopApi.search({endpoint: 'apiSearch', cat: 'mens-ties'});
 	})
 	.controller('ProductController', function ($scope) {
-		$scope.product.images.map(function (item) {
-			var imageSizeName = item.sizeName.toLowerCase();
-			$scope.product.images[imageSizeName] = item;
-		});
+		if ($scope.product.images) {
+			$scope.product.images.map(function (item) {
+				var imageSizeName = item.sizeName.toLowerCase();
+				$scope.product.images[imageSizeName] = item;
+			});
+		}
 	});

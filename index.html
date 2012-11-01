@@ -6,8 +6,9 @@
 
 		<script type="text/javascript" src="less-1.3.1.min.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"></script>
 
-		<script type="text/javascript" src="products.js"></script>
+		<script type="text/javascript" src="shopapi.js"></script>
 		<script type="text/javascript" src="regexp_filter.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</head>
@@ -19,7 +20,7 @@
 			<input ng-model="query" type="text" autofocus placeholder="Filter"/>
 
 			<div class="products">
-				<div class="product" ng-repeat="product in products | regexp: 'name': query" ng-controller="ProductController">
+				<div class="product" ng-repeat="product in data.products | regexp: 'name': query" ng-controller="ProductController">
 					<h2>{{product.name}}</h2>
 					<img ng-src="{{product.images.medium.url}}"/>
 					<p>
