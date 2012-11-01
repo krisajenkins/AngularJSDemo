@@ -1,6 +1,7 @@
 @shadow-colour: #888;
 @small-gap: 10px;
 @main-font-size: 14px;
+@main-text-color: #444;
 
 .simple-border {
 	border: solid 1px #555;
@@ -18,10 +19,20 @@
 }
 
 body {
-	color: #444;
+	color: @main-text-color;
 	font-size: @main-font-size;
 	background-image: -webkit-radial-gradient(center, 25em 25em, white, #eff6fc);
 	font-family: 'Metrophobic', sans-serif;
+}
+
+a {
+	color: @main-text-color;
+	&:visited {
+		color: @main-text-color;
+	}
+	&:hover {
+		color: black;
+	}
 }
 
 .content {
