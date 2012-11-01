@@ -1,6 +1,7 @@
 /*global productQuery:true*/
 "use strict";
 
-function ProductListController($scope) {
-	$scope.products = productQuery.products;
-}
+angular.module('ProductsApp', [])
+	.controller('ProductListController', function ($scope) {
+		$scope.products = productQuery.products;
+	});
