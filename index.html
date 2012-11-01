@@ -8,6 +8,7 @@
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
 
 		<script type="text/javascript" src="products.js"></script>
+		<script type="text/javascript" src="regexp_filter.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</head>
 
@@ -18,7 +19,7 @@
 			<input ng-model="query" type="text" autofocus placeholder="Filter"/>
 
 			<ul>
-				<li class="product" ng-repeat="product in products | filter: {name: query}">
+				<li class="product" ng-repeat="product in products | regexp: 'name': query">
 					{{product.name}}
 				</li>
 			</ul>
