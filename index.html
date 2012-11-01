@@ -15,8 +15,10 @@
 		<div class="content" ng-controller="ProductListController">
 			<h1>Products</h1>
 
+			<input ng-model="query" type="text" autofocus placeholder="Filter"/>
+
 			<ul>
-				<li class="product" ng-repeat="product in products">
+				<li class="product" ng-repeat="product in products | filter: {name: query}">
 					{{product.name}}
 				</li>
 			</ul>
