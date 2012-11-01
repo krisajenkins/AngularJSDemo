@@ -18,12 +18,17 @@
 
 			<input ng-model="query" type="text" autofocus placeholder="Filter"/>
 
-			<ul>
-				<li class="product" ng-repeat="product in products | regexp: 'name': query" ng-controller="ProductController">
-					{{product.name}}
-					<img ng-src="{{product.images.small.url}}"/>
-				</li>
-			</ul>
+			<div class="products">
+				<div class="product" ng-repeat="product in products | regexp: 'name': query" ng-controller="ProductController">
+					<h2>{{product.name}}</h2>
+					<img ng-src="{{product.images.medium.url}}"/>
+					<p>
+						{{product.currency}} {{product.price}}
+						-
+						{{product.brandName}}
+					</p>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

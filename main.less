@@ -1,6 +1,6 @@
 @shadow-colour: #888;
 @small-gap: 10px;
-@main-font-size: 25px;
+@main-font-size: 14px;
 
 .simple-border {
 	border: solid 1px #555;
@@ -30,5 +30,34 @@ body {
 }
 
 input {
-	font-size: @main-font-size;
+	font-size: @main-font-size * 2;
+	float: left;
+}
+
+.product {
+	.simple-border;
+	float: left;
+	width: 180px;
+	height: 350px;
+	padding: @small-gap;
+	margin: @small-gap;
+	background-color: white;
+
+	&:nth-of-type(4n+1) {
+		clear: left;
+		margin-left: 0px;
+	}
+
+	&:nth-of-type(4n) {
+		margin-right: 0px;
+	}
+
+	h2 {
+		margin-top: 0;
+	}
+
+	img {
+		display: block;
+		margin: 0px auto;
+	}
 }
