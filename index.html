@@ -19,8 +19,9 @@
 			<input ng-model="query" type="text" autofocus placeholder="Filter"/>
 
 			<ul>
-				<li class="product" ng-repeat="product in products | regexp: 'name': query">
+				<li class="product" ng-repeat="product in products | regexp: 'name': query" ng-controller="ProductController">
 					{{product.name}}
+					<img ng-src="{{product.images.small.url}}"/>
 				</li>
 			</ul>
 		</div>
