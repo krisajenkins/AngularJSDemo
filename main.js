@@ -35,4 +35,9 @@ angular.module('ProductsApp', ['RegexpFilterModule', 'ShopApiModule', 'ngSanitiz
 				product: '=',
 			}
 		};
-	});
+	})
+	.config(['$routeProvider', function ($routeProvider) {
+		$routeProvider
+			.when('/', {templateUrl: 'templates/front_page.html', controller: 'ProductListController'})
+			.otherwise({redirectTo: '/'});
+	}]);
