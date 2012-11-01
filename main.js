@@ -13,4 +13,15 @@ angular.module('ProductsApp', ['RegexpFilterModule', 'ShopApiModule'])
 				$scope.product.images[imageSizeName] = item;
 			});
 		}
+	})
+	.directive('productSummary', function () {
+		return {
+			restrict: 'E',
+			replace: true,
+			templateUrl: 'templates/product_summary.html',
+			controller: 'ProductController',
+			scope: {
+				product: '=',
+			}
+		};
 	});

@@ -20,15 +20,7 @@
 			<input ng-model="query" type="text" autofocus placeholder="Filter"/>
 
 			<div class="products">
-				<div class="product" ng-repeat="product in data.products | regexp: 'name': query" ng-controller="ProductController">
-					<h2>{{product.name}}</h2>
-					<img ng-src="{{product.images.medium.url}}"/>
-					<p>
-						{{product.currency}} {{product.price}}
-						-
-						{{product.brandName}}
-					</p>
-				</div>
+				<product-summary product="product" ng-repeat="product in data.products | regexp: 'name': query"/>
 			</div>
 		</div>
 	</body>
